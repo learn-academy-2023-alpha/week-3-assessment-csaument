@@ -63,26 +63,32 @@
           padding: "10px"
         }
         // No need to change anything ABOVE this line ^
+      
+      // Return the page with dynamic components
+      // Create a button for drawing cards. The button uses the onClick event to call the drawCard function within App.js
+      // Create a button for shuffling the cards back into the deck. The button uses the onClick event to call the shuffle function within App.js
+      // Render the card components from the hand state, iterating across the array through the .map() method. The cards are rendered using style from above, which takes advantage of the graphical display of suit characters using emojis.
 
-        return (
-          <h1>Draw a Card</h1>
-          <button onClick={}>
-            Click to Draw a Card
-          </button>
-          <button onclick={shuffle}>
-            Return Cards and Shuffle Deck
-          </button>
-          <div style={handStyles}>
+      // CHANGE 1: added JSX tags to the opening and closing of the return block. This removed the red squiggly lines indicating syntax errors, by informing the text editor that a different language is being parsed.
+      // CHANGE 2: added the drawCard function to the onClick event property of the first button, allowing this button to call the function.
+      // CHANGE 3: corrected syntax error by capitalizing the c in the onClick event property of the second button, allowing it to register this event.
+      return (<>
+            <h1>Draw a Card</h1>
+
+            <button onClick={drawCard}>Click to Draw a Card</button>
+            <button onClick={shuffle}>Return Cards and Shuffle Deck</button>
+
+            <div style={handStyles}>
             {hand.map((card, index) => {
-              return (
-                <div style={cardStyles} key={index}>
-                  {card}
-                </div>
-              )
-            })}
-          </div>
-        )
-      }
+                  return (
+                        <div style={cardStyles} key={index}>
+                              {card}
+                        </div>
+                        )
+                  })}
+            </div>
+      </>
+      )}
 
       // No need to change anything below this line
 
