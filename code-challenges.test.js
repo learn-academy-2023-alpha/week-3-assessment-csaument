@@ -200,7 +200,9 @@ const accumulateValue = (array) => {
       }else if(array.length === 0){
             return []
       }else{
-            return array.map((accumulator => value => accumulator += value)(0))
+            // return array.map((accumulator => value => accumulator += value)(0))
+
+            // Testing alternative method using .reduce()
+            return array.reduce((accumulator, value, index) => accumulator.concat(value + accumulator[index]),[0]).slice(1)
       }
 }
-
